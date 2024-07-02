@@ -3,19 +3,18 @@ package actions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import webelements.LoginElements;
-
+import webelements.IndexElements;
 
 import java.time.Duration;
 
-public class Login {
+public class Index {
 
-    private LoginElements element;
+    private IndexElements element;
     private Wait<WebDriver> wait;
 
 
-    public Login(WebDriver driver){
-        this.element = new LoginElements(driver);
+    public Index(WebDriver driver){
+        this.element = new IndexElements(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 

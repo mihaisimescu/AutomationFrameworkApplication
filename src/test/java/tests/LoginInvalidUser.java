@@ -1,6 +1,6 @@
 package tests;
 
-import actions.Login;
+import actions.Index;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
@@ -8,12 +8,12 @@ import utils.ConfigurationLoader;
 
 public class LoginInvalidUser extends BaseTest {
 
-    private Login login = null;
+    private Index login = null;
 
     @Test
     public void invalidLogin(){
 
-        login = new Login(driver);
+        login = new Index(driver);
         ConfigurationLoader configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
         String username = configurationLoader.getProperty("invalidUsername");
