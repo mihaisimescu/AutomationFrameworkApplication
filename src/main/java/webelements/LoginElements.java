@@ -28,4 +28,8 @@ public class LoginElements {
         return driver.findElement(By.xpath("//p[@class='smallText']"));
     }
 
+    public WebElement getInvalidUserMsg(){
+        return driver.findElement(By.xpath("//p[@class='error']"));
+    }
+
 }

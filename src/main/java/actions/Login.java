@@ -34,4 +34,8 @@ public class Login {
         return element.getUser().getText();
     }
 
+    public String getInvalidLoginMsg(){
+        return element.getInvalidUserMsg().getText();
+    }
+
 }
