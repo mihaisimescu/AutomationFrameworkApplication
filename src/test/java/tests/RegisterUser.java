@@ -33,8 +33,8 @@ public class RegisterUser extends BaseTest {
 
         register.clickSubmitButton();
 
-        String expected = "Welcome sim@t.com";
-        Assert.assertEquals(expected.toLowerCase(), register.registerDone().toLowerCase());
+        String expected = "Welcome sim@q.com";
+        Assert.assertEquals(register.registerDone().toLowerCase(), expected.toLowerCase());
 
     }
 }
