@@ -1,6 +1,7 @@
 package tests;
 
 import actions.Index;
+import actions.Overview;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,25 +12,17 @@ import utils.ConfigurationLoader;
 
 import java.time.Duration;
 
-public class LoginValidUser extends BaseTest {
+public class LogoutTest extends BaseTest {
 
     private Index login = null;
+    private Overview overview = null;
     ConfigurationLoader configurationLoader = null;
 
     @Test
-    public void validLogin(){
+    public void logOut(){
+
 
         login = new Index(driver);
-        loginUser();
-
-        String expected = configurationLoader.getProperty("LoginSuccessfull");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='smallText']")));
-
-        Assert.assertEquals(login.getUser(),expected);
-    }
-
-    private void loginUser(){
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
@@ -40,5 +33,16 @@ public class LoginValidUser extends BaseTest {
         login.enterPassword(password);
         login.clickLoginButton();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='logout.htm']")));
+
+        overview = new Overview(driver);
+        overview.clickLogout();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='submit']")));
+
+        Assert.assertEquals("Log In", overview.getLoginButton());
+
     }
+
 }
