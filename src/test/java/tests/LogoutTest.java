@@ -41,7 +41,7 @@ public class LogoutTest extends BaseTest {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='submit']")));
 
-        Assert.assertEquals("Log In", overview.getLoginButton());
+        Assert.assertEquals("Customer Login", overview.getCustomerLoginText());
 
     }
 

@@ -17,6 +17,6 @@ public class OverviewElements {
     }
 
     public WebElement logoutCheckSuccessful(){
-        return driver.findElement(By.cssSelector("input[type='submit']"));
+        return driver.findElement(By.cssSelector("h2"));
     }
 }

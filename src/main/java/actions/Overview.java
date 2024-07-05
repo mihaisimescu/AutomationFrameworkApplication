@@ -21,7 +21,7 @@ public class Overview {
         elements.logout().click();
     }
 
-    public String getLoginButton(){
+    public String getCustomerLoginText(){
         return elements.logoutCheckSuccessful().getText();
     }
 }

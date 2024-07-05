@@ -29,6 +29,7 @@ public class Index {
     public void enterPassword(String password){
         element.password().sendKeys(password);
     }
+
     public String getUser(){
         return element.getUser().getText();
     }
