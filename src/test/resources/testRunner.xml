@@ -12,10 +12,17 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name="Invalid Login Test">
+<!--    <test name="Invalid Login Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.LoginInvalidUser">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Logout Test">
         <classes>
-            <class name="tests.LoginInvalidUser">
+            <class name="tests.LogoutTest">
             </class>
         </classes>
     </test>
+
 </suite>
