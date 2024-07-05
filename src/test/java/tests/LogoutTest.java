@@ -21,7 +21,6 @@ public class LogoutTest extends BaseTest {
     @Test
     public void logOut(){
 
-
         login = new Index(driver);
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");

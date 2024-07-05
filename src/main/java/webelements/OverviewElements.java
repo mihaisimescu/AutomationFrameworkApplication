@@ -19,4 +19,8 @@ public class OverviewElements {
     public WebElement logoutCheckSuccessful(){
         return driver.findElement(By.cssSelector("h2"));
     }
+
+    public WebElement getBillPay(){
+        return driver.findElement(By.cssSelector("a[href='billpay.htm']"));
+    }
 }
