@@ -18,9 +18,16 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name="Logout Test">
+<!--    <test name="Logout Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.LogoutTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Bill Pay">
         <classes>
-            <class name="tests.LogoutTest">
+            <class name="tests.BillPayTest">
             </class>
         </classes>
     </test>
