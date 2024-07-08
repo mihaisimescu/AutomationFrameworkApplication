@@ -27,4 +27,8 @@ public class OverviewElements {
     public WebElement openNewAccount(){
         return driver.findElement(By.cssSelector("a[href='openaccount.htm']"));
     }
+
+    public WebElement transferFunds(){
+        return driver.findElement(By.cssSelector("a[href='transfer.htm']"));
+    }
 }

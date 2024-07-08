@@ -32,4 +32,8 @@ public class Overview {
     public void clickOpenNewAccount(){
         elements.openNewAccount().click();
     }
+
+    public void clickTransferFunds(){
+        elements.transferFunds().click();
+    }
 }
