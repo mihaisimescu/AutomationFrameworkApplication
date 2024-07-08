@@ -24,9 +24,12 @@ public class Overview {
     public String getCustomerLoginText(){
         return elements.logoutCheckSuccessful().getText();
     }
-
-
     public void clickBillPay(){
         elements.getBillPay().click();
+    }
+
+
+    public void clickOpenNewAccount(){
+        elements.openNewAccount().click();
     }
 }

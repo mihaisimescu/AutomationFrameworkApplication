@@ -23,4 +23,8 @@ public class OverviewElements {
     public WebElement getBillPay(){
         return driver.findElement(By.cssSelector("a[href='billpay.htm']"));
     }
+
+    public WebElement openNewAccount(){
+        return driver.findElement(By.cssSelector("a[href='openaccount.htm']"));
+    }
 }

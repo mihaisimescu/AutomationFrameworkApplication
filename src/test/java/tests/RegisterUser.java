@@ -38,7 +38,7 @@ public class RegisterUser extends BaseTest {
 
         register.clickSubmitButton();
 
-        String expected = "Welcome Simi13";
+        String expected = "Welcome Simi133";
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1[class='title']")));

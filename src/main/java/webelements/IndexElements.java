@@ -32,5 +32,7 @@ public class IndexElements {
         return driver.findElement(By.xpath("//p[@class='error']"));
     }
 
-
+    public WebElement getUserNotFound(){
+        return driver.findElement(By.cssSelector("p[class='error']"));
+    }
 }
