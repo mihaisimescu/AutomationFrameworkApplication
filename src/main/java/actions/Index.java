@@ -38,5 +38,7 @@ public class Index {
         return element.getInvalidUserMsg().getText();
     }
 
-
+    public String usernameNotFound(){
+        return element.getUserNotFound().getText();
+    }
 }

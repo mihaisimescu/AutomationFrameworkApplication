@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="AutomationFramework">
-<!--    <test name="Register Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.RegisterUser">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Register Test">
+        <classes>
+            <class name="tests.RegisterUser">
+            </class>
+        </classes>
+    </test>
 <!--    <test name="Login Test">-->
 <!--        <classes>-->
 <!--            <class name="tests.LoginValidUser">-->
@@ -24,10 +24,16 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
+<!--    <test name="Bill Pay">-->
+<!--        <classes>-->
+<!--            <class name="tests.BillPayTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Bill Pay">
+    <test name="Open Account Test">
         <classes>
-            <class name="tests.BillPayTest">
+            <class name="tests.OpenAccountTest">
             </class>
         </classes>
     </test>
