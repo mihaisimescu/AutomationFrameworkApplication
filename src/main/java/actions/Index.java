@@ -41,4 +41,8 @@ public class Index {
     public String usernameNotFound(){
         return element.getUserNotFound().getText();
     }
+
+    public void clickForgotLogin(){
+        element.getForgotLoginLink().click();
+    }
 }
