@@ -38,9 +38,16 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Navigation Test">
+<!--    <test name="Navigation Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.NavigationTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Update Profile Test">
         <classes>
-            <class name="tests.NavigationTest">
+            <class name="tests.UpdateProfileTest">
             </class>
         </classes>
     </test>
