@@ -27,4 +27,26 @@ public class OverviewElements {
     public WebElement openNewAccount(){
         return driver.findElement(By.cssSelector("a[href='openaccount.htm']"));
     }
+
+    public WebElement accountsOverview(){
+        return driver.findElement(By.cssSelector("a[href='overview.htm']"));
+    }
+
+    public WebElement transferFunds(){
+        return driver.findElement(By.cssSelector("a[href='transfer.htm']"));
+    }
+
+    public WebElement findTransactions(){
+        return driver.findElement(By.cssSelector("a[href='findtrans.htm']"));
+    }
+
+    public WebElement updateContact(){
+        return driver.findElement(By.cssSelector("a[href='updateprofile.htm']"));
+    }
+
+    public WebElement requestLoan(){
+        return driver.findElement(By.cssSelector("a[href='requestloan.htm']"));
+    }
+
+
 }

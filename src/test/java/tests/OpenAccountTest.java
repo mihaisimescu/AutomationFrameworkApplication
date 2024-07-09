@@ -45,9 +45,9 @@ public class OpenAccountTest extends BaseTest {
 
         openAccount = new OpenAccount(driver);
 
-        Select dropdown =  new Select(driver.findElement(By.cssSelector("select[id='type']")));
+        Select dropdownTypeAccount =  new Select(driver.findElement(By.cssSelector("select[id='type']")));
 
-        dropdown.selectByVisibleText("SAVINGS");
+        dropdownTypeAccount.selectByVisibleText("SAVINGS");
 
         openAccount.clickSubmit();
 
