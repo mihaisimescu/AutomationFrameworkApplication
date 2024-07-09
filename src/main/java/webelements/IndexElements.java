@@ -35,4 +35,8 @@ public class IndexElements {
     public WebElement getUserNotFound(){
         return driver.findElement(By.cssSelector("p[class='error']"));
     }
+
+    public WebElement getForgotLoginLink(){
+        return driver.findElement(By.cssSelector("a[href='lookup.htm']"));
+    }
 }
