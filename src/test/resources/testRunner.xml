@@ -31,9 +31,16 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Open Account Test">
+<!--    <test name="Open Account Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.OpenAccountTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Navigation Test">
         <classes>
-            <class name="tests.OpenAccountTest">
+            <class name="tests.NavigationTest">
             </class>
         </classes>
     </test>

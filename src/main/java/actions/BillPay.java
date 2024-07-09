@@ -58,4 +58,8 @@ public class BillPay {
     public String sentAmount(){
         return element.checkSentAmount().getText();
     }
+
+    public String getBillPaymentTitle(){
+        return element.getBillPaymentService().getText();
+    }
 }

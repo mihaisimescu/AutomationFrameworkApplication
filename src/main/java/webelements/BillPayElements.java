@@ -59,4 +59,8 @@ public class BillPayElements {
     public WebElement checkFromAccountId(){
         return driver.findElement(By.cssSelector("span[id='fromAccountId']"));
     }
+
+    public WebElement getBillPaymentService(){
+        return driver.findElement(By.xpath("//h1[contains(text(),'Bill Payment Service')]"));
+    }
 }

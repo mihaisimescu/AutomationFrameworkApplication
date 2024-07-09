@@ -32,4 +32,24 @@ public class Overview {
     public void clickOpenNewAccount(){
         elements.openNewAccount().click();
     }
+
+    public void clickAccountsOverview(){
+        elements.accountsOverview().click();
+    }
+
+    public void clickTransferFunds(){
+        elements.transferFunds().click();
+    }
+
+    public void clickFindTransactions(){
+        elements.findTransactions().click();
+    }
+
+    public void clickUpdateContactInfo(){
+        elements.updateContact().click();
+    }
+
+    public void clickRequestLoan(){
+        elements.requestLoan().click();
+    }
 }

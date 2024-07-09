@@ -40,7 +40,7 @@ public class LogoutTest extends BaseTest {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='submit']")));
 
-        Assert.assertEquals("Customer Login", overview.getCustomerLoginText());
+        Assert.assertEquals(overview.getCustomerLoginText(), configurationLoader.getProperty("logout"));
 
     }
 
