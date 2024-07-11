@@ -52,9 +52,16 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Forgot Login Test">
+<!--    <test name="Forgot Login Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.FindMyLoginInfoTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Transfer Funds Test">
         <classes>
-            <class name="tests.FindMyLoginInfoTest">
+            <class name="tests.TransferFundsTest">
             </class>
         </classes>
     </test>

@@ -15,4 +15,29 @@ public class TransferElements {
     public WebElement getTransferFundsTitle(){
         return driver.findElement(By.xpath("//h1[contains(text(),'Transfer Funds')]"));
     }
+
+    public WebElement submitButton(){
+        return driver.findElement(By.cssSelector("input[value='Transfer']"));
+    }
+
+    public WebElement amount(){
+        return driver.findElement(By.cssSelector("input[id='amount']"));
+    }
+
+    public WebElement amountResult(){
+        return driver.findElement(By.cssSelector("span[id='amountResult']"));
+    }
+
+    public WebElement fromAccountIdResult(){
+        return driver.findElement(By.cssSelector("span[id='fromAccountIdResult']"));
+    }
+
+    public WebElement toAccountIdResult(){
+        return driver.findElement(By.cssSelector("span[id='toAccountIdResult']"));
+    }
+
+    public WebElement transferComplete(){
+        return driver.findElement(By.xpath("//h1[contains(text(),'Transfer Complete!')]"));
+    }
 }
+

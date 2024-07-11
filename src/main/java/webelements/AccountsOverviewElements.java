@@ -15,4 +15,8 @@ public class AccountsOverviewElements {
     public WebElement getAccountsOverviewTitle(){
         return driver.findElement(By.xpath("//h1[contains(text(),'Accounts Overview')]"));
     }
+
+    public WebElement defaultAccountId(){
+        return  driver.findElement(By.xpath("//*[@id='accountTable']/tbody/tr[1]/td[1]/a"));
+    }
 }

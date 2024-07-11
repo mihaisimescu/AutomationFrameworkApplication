@@ -15,4 +15,8 @@ public class AccountOverview {
         return elements.getAccountsOverviewTitle().getText();
     }
 
+    public String getDefaultAccount(){
+        return elements.defaultAccountId().getText();
+    }
+
 }
