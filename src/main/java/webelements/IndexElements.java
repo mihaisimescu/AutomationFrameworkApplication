@@ -25,6 +25,7 @@ public class IndexElements {
     }
 
     public WebElement getUser(){
+        wait()
         return driver.findElement(By.xpath("//p[@class='smallText']"));
     }
 
@@ -38,5 +39,9 @@ public class IndexElements {
 
     public WebElement getForgotLoginLink(){
         return driver.findElement(By.cssSelector("a[href='lookup.htm']"));
+    }
+
+    public WebElement loginError(){
+        return driver.findElement(By.xpath("//p[contains(text(),'The username and password could not be verified.')]"));
     }
 }

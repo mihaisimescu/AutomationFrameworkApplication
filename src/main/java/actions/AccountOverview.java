@@ -19,4 +19,8 @@ public class AccountOverview {
         return elements.defaultAccountId().getText();
     }
 
+    public void clickDefaultAccount(){
+        elements.defaultAccountId().click();
+    }
+
 }

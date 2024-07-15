@@ -1,6 +1,7 @@
 package tests;
 
 import actions.Index;
+import actions.Register;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,16 +16,17 @@ public class LoginValidUser extends BaseTest {
 
     private Index login = null;
     ConfigurationLoader configurationLoader = null;
+    private Register register = null;
 
     @Test
     public void validLogin(){
 
         login = new Index(driver);
+        register = new Register(driver);
         loginUser();
 
         String expected = configurationLoader.getProperty("LoginSuccessfull");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='smallText']")));
 
         Assert.assertEquals(login.getUser(),expected);
     }
@@ -39,6 +41,15 @@ public class LoginValidUser extends BaseTest {
         login.enterUserName(username);
         login.enterPassword(password);
         login.clickLoginButton();
+
+        if(login.errorLoginText()){
+
+            register.registerNewUser();
+
+            login.enterUserName(username);
+            login.enterPassword(password);
+            login.clickLoginButton();
+        }
 
     }
 }
