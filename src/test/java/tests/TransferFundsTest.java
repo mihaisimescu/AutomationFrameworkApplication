@@ -55,12 +55,14 @@ public class TransferFundsTest extends BaseTest {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("select[id='fromAccountId']")));
 
+        //Enter amount to be transferred
         transferFunds = new Transfer(driver);
         transferFunds.enterAmount(configurationLoader.getProperty("transferAmount"));
 
         dropdownFromAccount = new Select(driver.findElement(By.cssSelector("select[id='fromAccountId']")));
         dropdownToAccount = new Select(driver.findElement(By.cssSelector("select[id='toAccountId']")));
 
+        //Select accounts
         dropdownFromAccount.selectByVisibleText(defaultAccount);
         dropdownToAccount.selectByVisibleText(defaultAccount);
 
