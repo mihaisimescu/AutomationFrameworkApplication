@@ -32,4 +32,4 @@ public class RegisterUser extends BaseTest {
 
     }
 
-    }
+}

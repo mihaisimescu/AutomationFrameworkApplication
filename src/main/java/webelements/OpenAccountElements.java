@@ -14,10 +14,10 @@ public class OpenAccountElements {
     }
 
     public WebElement submitButton(){
-        return driver.findElement(By.cssSelector("input[value='Open New Account']"));
+        return driver.findElement(By.cssSelector("input[type='button']"));
     }
 
-    public WebElement accountDropdown(){
+    public WebElement typeOfAccountDropdown(){
         return driver.findElement(By.cssSelector("select[id='type']"));
     }
 
