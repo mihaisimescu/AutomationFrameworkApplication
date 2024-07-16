@@ -3,6 +3,10 @@ package webelements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class IndexElements {
 
@@ -25,7 +29,6 @@ public class IndexElements {
     }
 
     public WebElement getUser(){
-        wait()
         return driver.findElement(By.xpath("//p[@class='smallText']"));
     }
 

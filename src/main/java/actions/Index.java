@@ -15,7 +15,7 @@ public class Index {
 
     public Index(WebDriver driver){
         this.element = new IndexElements(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     public void clickLoginButton(){

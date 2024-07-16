@@ -6,12 +6,12 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name="Login Test">
-        <classes>
-            <class name="tests.LoginValidUser">
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Login Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.LoginValidUser">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 <!--    <test name="Invalid Login Test">-->
 <!--        <classes>-->
 <!--            <class name="tests.LoginInvalidUser">-->
@@ -65,5 +65,11 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
+    <test name="Account History Test">
+        <classes>
+            <class name="tests.AccountHistoryTest">
+            </class>
+        </classes>
+    </test>
 
 </suite>

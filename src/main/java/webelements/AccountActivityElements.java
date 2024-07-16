@@ -20,4 +20,11 @@ public class AccountActivityElements {
         return driver.findElement(By.xpath("//a[contains(text(),'Funds Transfer Sent')]"));
     }
 
-}
+    public WebElement noTransactions(){
+        return driver.findElement(By.cssSelector("p[id='noTransactions']"));
+    }
+
+    public WebElement noTransactionsText(){
+        return driver.findElement(By.cssSelector("#noTransactions > b"));
+    }
+ }

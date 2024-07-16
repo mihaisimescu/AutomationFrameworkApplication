@@ -26,7 +26,6 @@ public class LoginValidUser extends BaseTest {
         loginUser();
 
         String expected = configurationLoader.getProperty("LoginSuccessfull");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         Assert.assertEquals(login.getUser(),expected);
     }
