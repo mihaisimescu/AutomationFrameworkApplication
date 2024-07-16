@@ -3,6 +3,7 @@ package actions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ConfigurationLoader;
 import webelements.IndexElements;
 
 import java.time.Duration;
@@ -15,11 +16,10 @@ public class Index {
 
     public Index(WebDriver driver){
         this.element = new IndexElements(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     public void clickLoginButton(){
-        wait.until(d->element.getLoginButton().isDisplayed());
         element.getLoginButton().click();
     }
 
@@ -55,5 +55,15 @@ public class Index {
         }catch ( Exception e ){
             return false;
         }
+    }
+
+    public void loginUser(){
+        ConfigurationLoader configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
+
+        enterUserName(configurationLoader.getProperty("username"));
+        enterPassword(configurationLoader.getProperty("password"));
+
+        clickLoginButton();
+
     }
 }
