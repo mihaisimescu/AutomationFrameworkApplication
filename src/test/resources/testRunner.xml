@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="AutomationFramework">
-    <test name="Register Test">
-        <classes>
-            <class name="tests.RegisterUser">
-            </class>
-        </classes>
-    </test>
+<!--    <test name="Register Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.RegisterUser">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 <!--    <test name="Login Test">-->
 <!--        <classes>-->
 <!--            <class name="tests.LoginValidUser">-->
@@ -59,9 +59,15 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Transfer Funds Test">
+<!--    <test name="Transfer Funds Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.TransferFundsTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Account History Test">
         <classes>
-            <class name="tests.TransferFundsTest">
+            <class name="tests.AccountHistoryTest">
             </class>
         </classes>
     </test>

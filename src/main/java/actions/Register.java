@@ -1,6 +1,7 @@
 package actions;
 
 import org.openqa.selenium.WebDriver;
+import utils.ConfigurationLoader;
 import webelements.RegisterElements;
 
 public class Register {
@@ -67,4 +68,24 @@ public class Register {
         return elements.registerSuccessful().getText();
     }
 
+    public void registerNewUser() {
+
+        ConfigurationLoader configurationLoader = new ConfigurationLoader("src/test/resources/properties/registerUserData.properties");
+
+        clickRegisterButton();
+
+        enterFirstName(configurationLoader.getProperty("firstName"));
+        enterLastName(configurationLoader.getProperty("lastName"));
+        enterAddress(configurationLoader.getProperty("address"));
+        enterCity(configurationLoader.getProperty("city"));
+        enterState(configurationLoader.getProperty("state"));
+        enterZipCode(configurationLoader.getProperty("zipCode"));
+        enterPhone(configurationLoader.getProperty("phone"));
+        enterSocialSecurityNumber(configurationLoader.getProperty("ssn"));
+        enterUsername(configurationLoader.getProperty("userName"));
+        enterPassword(configurationLoader.getProperty("password"));
+        confirmPassword(configurationLoader.getProperty("confirm"));
+
+        clickSubmitButton();
+    }
 }

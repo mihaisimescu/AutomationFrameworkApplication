@@ -15,14 +15,16 @@ public class Index {
 
     public Index(WebDriver driver){
         this.element = new IndexElements(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     public void clickLoginButton(){
+        wait.until(d->element.getLoginButton().isDisplayed());
         element.getLoginButton().click();
     }
 
     public void enterUserName(String username){
+        wait.until(d->element.username().isDisplayed());
         element.username().sendKeys(username);
     }
 
@@ -44,5 +46,14 @@ public class Index {
 
     public void clickForgotLogin(){
         element.getForgotLoginLink().click();
+    }
+
+    public boolean errorLoginText(){
+        try {
+            wait.until(d -> element.loginError().isDisplayed());
+            return element.loginError().isDisplayed();
+        }catch ( Exception e ){
+            return false;
+        }
     }
 }
