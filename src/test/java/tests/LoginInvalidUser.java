@@ -25,8 +25,6 @@ public class LoginInvalidUser extends BaseTest {
         login.clickLoginButton();
 
         Assert.assertEquals(login.getInvalidLoginMsg(),errorMsg);
-
-
     }
 
     }

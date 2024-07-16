@@ -31,13 +31,8 @@ public class NavigationTest extends BaseTest {
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
-        String username = configurationLoader.getProperty("username");
-        String password = configurationLoader.getProperty("password");
-
         // Log In Phase
-        login.enterUserName(username);
-        login.enterPassword(password);
-        login.clickLoginButton();
+        login.loginUser();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='logout.htm']")));

@@ -47,4 +47,8 @@ public class IndexElements {
     public WebElement loginError(){
         return driver.findElement(By.xpath("//p[contains(text(),'The username and password could not be verified.')]"));
     }
+
+    public WebElement logout(){
+        return driver.findElement(By.cssSelector("a[href='logout.htm']"));
+    }
 }

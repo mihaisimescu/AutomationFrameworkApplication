@@ -23,32 +23,19 @@ public class LoginValidUser extends BaseTest {
 
         login = new Index(driver);
         register = new Register(driver);
-        loginUser();
 
-        String expected = configurationLoader.getProperty("LoginSuccessfull");
+        login.loginUser();
 
-        Assert.assertEquals(login.getUser(),expected);
-    }
+        //Check if the account not created
+        if(login.errorLoginText()) {
 
-    private void loginUser(){
-
-        configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
-
-        String username = configurationLoader.getProperty("username");
-        String password = configurationLoader.getProperty("password");
-
-        login.enterUserName(username);
-        login.enterPassword(password);
-        login.clickLoginButton();
-
-        if(login.errorLoginText()){
-
+            register = new Register(driver);
             register.registerNewUser();
+            login.loginUser();
+          }
 
-            login.enterUserName(username);
-            login.enterPassword(password);
-            login.clickLoginButton();
-        }
-
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
     }
+
 }

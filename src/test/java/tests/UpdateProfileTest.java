@@ -2,6 +2,7 @@ package tests;
 
 import actions.Index;
 import actions.Overview;
+import actions.Register;
 import actions.UpdateProfile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,6 +21,7 @@ public class UpdateProfileTest extends BaseTest {
     ConfigurationLoader updateLoader = null;
     UpdateProfile updateProfile = null;
     private Overview overview= null;
+    Register register = null;
 
 
     @Test
@@ -29,16 +31,18 @@ public class UpdateProfileTest extends BaseTest {
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
-        String username = configurationLoader.getProperty("username");
-        String password = configurationLoader.getProperty("password");
-
         // Log In Phase
-        login.enterUserName(username);
-        login.enterPassword(password);
-        login.clickLoginButton();
+        login.loginUser();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='logout.htm']")));
+        //Check if the account not created
+        if(login.errorLoginText()) {
+            register = new Register(driver);
+            register.registerNewUser();
+            login.loginUser();
+        }
+
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
 
         // Go to update profile
         overview = new Overview(driver);
@@ -59,6 +63,7 @@ public class UpdateProfileTest extends BaseTest {
 
         updateProfile.clickUpdateProfile();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Profile Updated')]")));
         Assert.assertEquals(updateProfile.getUpdateProfileResult(), updateLoader.getProperty("updateProfileResult"));
     }

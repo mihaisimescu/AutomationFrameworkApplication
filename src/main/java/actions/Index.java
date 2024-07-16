@@ -1,6 +1,7 @@
 package actions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigurationLoader;
@@ -52,6 +53,15 @@ public class Index {
         try {
             wait.until(d -> element.loginError().isDisplayed());
             return element.loginError().isDisplayed();
+        }catch ( Exception e ){
+            return false;
+        }
+    }
+
+    public boolean checkLogout(){
+        try {
+            wait.until(d -> element.logout().isDisplayed());
+            return element.logout().isDisplayed();
         }catch ( Exception e ){
             return false;
         }
