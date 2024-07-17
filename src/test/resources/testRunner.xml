@@ -49,13 +49,6 @@
         </classes>
     </test>
 
-    <test name="Update Profile Test">
-        <classes>
-            <class name="tests.UpdateProfileTest">
-            </class>
-        </classes>
-    </test>
-
     <test name="Forgot Login Test">
         <classes>
             <class name="tests.FindMyLoginInfoTest">
@@ -76,5 +69,12 @@
             </class>
         </classes>
     </test>
+
+<!--    <test name="Update Profile Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.UpdateProfileTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

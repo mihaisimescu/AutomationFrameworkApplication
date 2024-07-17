@@ -1,66 +1,68 @@
 package actions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import webelements.BillPayElements;
+
+import java.time.Duration;
 
 public class BillPay {
 
-    private BillPayElements element;
+    private BillPayElements elements;
+    private Wait<WebDriver> wait;
 
     public BillPay(WebDriver driver){
-        this.element = new BillPayElements(driver);
+        this.elements = new BillPayElements(driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void enterPayeeName(String name){
-        element.payeeName().sendKeys(name);
+        elements.payeeName().sendKeys(name);
     }
 
     public void enterAddress(String address){
-        element.payeeAddress().sendKeys(address);
+        elements.payeeAddress().sendKeys(address);
     }
 
     public void enterCity(String city){
-        element.payeeCity().sendKeys(city);
+        elements.payeeCity().sendKeys(city);
     }
 
     public void enterState(String state){
-        element.payeeState().sendKeys(state);
+        elements.payeeState().sendKeys(state);
     }
 
     public void enterZipCode(String zipCode){
-        element.payeeZipCode().sendKeys(zipCode);
+        elements.payeeZipCode().sendKeys(zipCode);
     }
 
     public void enterPhone(String phone){
-        element.payeePhoneNumber().sendKeys(phone);
+        elements.payeePhoneNumber().sendKeys(phone);
     }
 
     public void enterAccount(String account){
-        element.payeeAccount().sendKeys(account);
+        elements.payeeAccount().sendKeys(account);
     }
 
     public void verifyAccount(String verifyAccount){
-        element.payeeVerifyAccount().sendKeys(verifyAccount);
+        elements.payeeVerifyAccount().sendKeys(verifyAccount);
     }
 
     public void enterAmount(String amount){
-        element.payeeAmount().sendKeys(amount);
+        elements.payeeAmount().sendKeys(amount);
     }
 
     public void  clickSubmit(){
-        element.sendPayment().click();
-    }
-
-    public String accountId(){
-        return element.checkFromAccountId().getText();
+        elements.sendPayment().click();
     }
 
     public String sentAmount(){
-        return element.checkSentAmount().getText();
+        wait.until(d->elements.checkSentAmount().isDisplayed());
+        return elements.checkSentAmount().getText();
     }
 
     public String getBillPaymentTitle(){
-        return element.getBillPaymentService().getText();
+        return elements.getBillPaymentService().getText();
     }
-
 }

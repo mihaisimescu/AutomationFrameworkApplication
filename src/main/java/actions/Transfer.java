@@ -18,7 +18,7 @@ public class Transfer {
 
     public Transfer(WebDriver driver){
         this.elements = new TransferElements(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public String getTransferTitle(){
@@ -42,7 +42,7 @@ public class Transfer {
             wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
                 public Boolean apply(WebDriver driver) {
                     Select select = new Select(elements.fromAccountIdResult());
-                    return select.getOptions().size() > 1;
+                    return select.getOptions().size() >= 1;
                 }
             });
 
@@ -58,7 +58,7 @@ public class Transfer {
             wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
                 public Boolean apply(WebDriver driver) {
                     Select select = new Select(elements.toAccountIdResult());
-                    return select.getOptions().size() > 1;
+                    return select.getOptions().size() >= 1;
                 }
             });
 

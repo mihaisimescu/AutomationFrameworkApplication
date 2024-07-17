@@ -1,9 +1,6 @@
 package tests;
 
-import actions.BillPay;
-import actions.Index;
-import actions.Overview;
-import actions.Register;
+import actions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +18,7 @@ public class BillPayTest extends BaseTest {
     private BillPay billPay = null;
     private Overview overview= null;
     private Register register = null;
+    private AccountOverview accountOverview = null;
 
     @Test
     public void billPay(){
@@ -30,6 +28,8 @@ public class BillPayTest extends BaseTest {
         login = new Index(driver);
         billPay = new BillPay(driver);
         overview = new Overview(driver);
+        accountOverview = new AccountOverview(driver);
+        configurationLoader = new ConfigurationLoader("src/test/resources/properties/billPayData.properties");
 
         // Log In Phase
         login.loginUser();
@@ -41,34 +41,50 @@ public class BillPayTest extends BaseTest {
             register.registerNewUser();
 
         }
-
         //Check if login is successful, by checking if logout link is present
         Assert.assertTrue(login.checkLogout());
 
-        //* Go to BillPay page
-        overview.clickBillPay();
+        //Store number of bills to pay
+        int numberOfBills = Integer.parseInt(configurationLoader.getProperty("numberOFBills"));
 
-        configurationLoader = new ConfigurationLoader("src/test/resources/properties/billPayData.properties");
+        //loop through bills and pay them
+        for (int i = 0; i<numberOfBills; i++) {
 
-        billPay.enterPayeeName(configurationLoader.getProperty("payeeName"));
-        billPay.enterAddress(configurationLoader.getProperty("payeeAddress"));
-        billPay.enterCity(configurationLoader.getProperty("payeeCity"));
-        billPay.enterState(configurationLoader.getProperty("payeeState"));
-        billPay.enterZipCode(configurationLoader.getProperty("payeeZipCode"));
-        billPay.enterPhone(configurationLoader.getProperty("payeePhone"));
-        billPay.enterAccount(configurationLoader.getProperty("payeeAccount"));
-        billPay.verifyAccount(configurationLoader.getProperty("verifyPayeeAccount"));
-        billPay.enterAmount(configurationLoader.getProperty("payeeAmount"));
+            //* Go to BillPay page
+            overview.clickBillPay();
 
-        String accountID = billPay.accountId();
-        String amount = "$" + configurationLoader.getProperty("payeeAmount");
+            //Enter Payee data
+            billPay.enterPayeeName(configurationLoader.getProperty("payeeName" + String.valueOf(i)));
+            billPay.enterAddress(configurationLoader.getProperty("payeeAddress" + String.valueOf(i)));
+            billPay.enterCity(configurationLoader.getProperty("payeeCity" + String.valueOf(i)));
+            billPay.enterState(configurationLoader.getProperty("payeeState" + String.valueOf(i)));
+            billPay.enterZipCode(configurationLoader.getProperty("payeeZipCode" + String.valueOf(i)));
+            billPay.enterPhone(configurationLoader.getProperty("payeePhone" + String.valueOf(i)));
+            billPay.enterAccount(configurationLoader.getProperty("payeeAccount" + String.valueOf(i)));
+            billPay.verifyAccount(configurationLoader.getProperty("verifyPayeeAccount" + String.valueOf(i)));
+            billPay.enterAmount(configurationLoader.getProperty("payeeAmount" + String.valueOf(i)));
 
-        billPay.clickSubmit();
+            //Store amount
+            String amount = "$" + configurationLoader.getProperty("payeeAmount" + String.valueOf(i));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span[id='amount']")));
+            //Click submit button
+            billPay.clickSubmit();
 
-        //Assert.assertEquals(billPay.accountId(),accountID);
-        Assert.assertEquals(billPay.sentAmount(), amount);
+            //Check if the amount sent matches the amount entered
+            Assert.assertEquals(billPay.sentAmount(), amount);
+        }
+
+        //Go to accounts overview
+        overview.clickAccountsOverview();
+
+        //Click on the main account
+        accountOverview.clickDefaultAccount();
+
+        for (int i = 0; i<numberOfBills; i++ ){
+            //Create transaction name
+            String transactionName = configurationLoader.getProperty("transactionName") + " " + configurationLoader.getProperty("payeeName" + String.valueOf(i));
+            //Check transaction history
+            Assert.assertTrue(accountOverview.checkTransactionName(transactionName));
+        }
     }
 }
