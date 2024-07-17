@@ -6,65 +6,70 @@
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
-<!--    <test name="Login Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.LoginValidUser">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Invalid Login Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.LoginInvalidUser">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Logout Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.LogoutTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Bill Pay">-->
-<!--        <classes>-->
-<!--            <class name="tests.BillPayTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
 
-<!--    <test name="Open Account Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.OpenAccountTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Login Test">
+        <classes>
+            <class name="tests.LoginValidUser">
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Navigation Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.NavigationTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Invalid Login Test">
+        <classes>
+            <class name="tests.LoginInvalidUser">
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Update Profile Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.UpdateProfileTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Logout Test">
+        <classes>
+            <class name="tests.LogoutTest">
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Forgot Login Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.FindMyLoginInfoTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Bill Pay">
+        <classes>
+            <class name="tests.BillPayTest">
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Transfer Funds Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.TransferFundsTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Open Account Test">
+        <classes>
+            <class name="tests.OpenAccountTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Navigation Test">
+        <classes>
+            <class name="tests.NavigationTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Update Profile Test">
+        <classes>
+            <class name="tests.UpdateProfileTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Forgot Login Test">
+        <classes>
+            <class name="tests.FindMyLoginInfoTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Transfer Funds Test">
+        <classes>
+            <class name="tests.TransferFundsTest">
+            </class>
+        </classes>
+    </test>
+
     <test name="Account History Test">
         <classes>
             <class name="tests.AccountHistoryTest">

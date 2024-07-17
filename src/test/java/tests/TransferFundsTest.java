@@ -1,9 +1,6 @@
 package tests;
 
-import actions.AccountOverview;
-import actions.Index;
-import actions.Overview;
-import actions.Transfer;
+import actions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -18,36 +15,44 @@ import java.time.Duration;
 public class TransferFundsTest extends BaseTest {
 
     private Index login = null;
-    ConfigurationLoader configurationLoader = null;
-    Transfer transferFunds;
+    private ConfigurationLoader configurationLoader = null;
+    private Transfer transferFunds;
     private Overview overview = null;
-    Select dropdownFromAccount = null;
-    Select dropdownToAccount = null;
+    private Select dropdownFromAccount = null;
+    private Select dropdownToAccount = null;
     private AccountOverview accountOverview= null;
+    private Register register = null;
 
     @Test
     public void transferFunds(){
 
         login = new Index(driver);
+        overview = new Overview(driver);
+        accountOverview = new AccountOverview(driver);
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
-        String username = configurationLoader.getProperty("username");
-        String password = configurationLoader.getProperty("password");
-
         // Log In Phase
-        login.enterUserName(username);
-        login.enterPassword(password);
-        login.clickLoginButton();
+        login.loginUser();
+
+        //Check if the account not created
+        if(login.errorLoginText()) {
+            //Register new user
+            register = new Register(driver);
+            register.registerNewUser();
+
+        }
+
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
+
+        overview.clickAccountsOverview();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='accountTable']/tbody/tr[1]/td[1]/a")));
 
-        // Go to Open New Account
-        overview = new Overview(driver);
-
         // Go to accounts overview to get the default account id
-        accountOverview = new AccountOverview(driver);
+
         String defaultAccount = accountOverview.getDefaultAccount();
 
         //Go to TransferFunds
@@ -59,12 +64,9 @@ public class TransferFundsTest extends BaseTest {
         transferFunds = new Transfer(driver);
         transferFunds.enterAmount(configurationLoader.getProperty("transferAmount"));
 
-        dropdownFromAccount = new Select(driver.findElement(By.cssSelector("select[id='fromAccountId']")));
-        dropdownToAccount = new Select(driver.findElement(By.cssSelector("select[id='toAccountId']")));
-
         //Select accounts
-        dropdownFromAccount.selectByVisibleText(defaultAccount);
-        dropdownToAccount.selectByVisibleText(defaultAccount);
+        transferFunds.selectFromAccountId(defaultAccount);
+        transferFunds.selectToAccountId(defaultAccount);
 
         transferFunds.clickSubmitButton();
 

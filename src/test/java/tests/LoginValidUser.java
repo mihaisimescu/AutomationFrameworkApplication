@@ -24,14 +24,15 @@ public class LoginValidUser extends BaseTest {
         login = new Index(driver);
         register = new Register(driver);
 
+        //Log in
         login.loginUser();
 
         //Check if the account not created
         if(login.errorLoginText()) {
-
+            //Register new user
             register = new Register(driver);
             register.registerNewUser();
-            login.loginUser();
+
           }
 
         //Check if login is successful, by checking if logout link is present

@@ -34,15 +34,14 @@ public class BillPayTest extends BaseTest {
 
         //Check if the account not created
         if(login.errorLoginText()) {
+            //Register new user
             register = new Register(driver);
             register.registerNewUser();
 
-            login.loginUser();
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='logout.htm']")));
-        //wait.until(d-> login.)
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
 
         //* Go to BillPay page
         overview.clickBillPay();
@@ -64,6 +63,7 @@ public class BillPayTest extends BaseTest {
 
         billPay.clickSubmit();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span[id='amount']")));
 
         //Assert.assertEquals(billPay.accountId(),accountID);

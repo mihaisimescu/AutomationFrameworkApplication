@@ -36,24 +36,34 @@ public class OpenAccount {
     }
 
     public void selectTypeOfAccount(String typeOfAccount){
+        try {
+            wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    Select select = new Select(elements.typeOfAccountDropdown());
+                    return select.getOptions().size() > 1;
+                }
+            });
 
-        select = new Select(elements.typeOfAccountDropdown());
-        select.selectByVisibleText(typeOfAccount);
+            select = new Select(elements.typeOfAccountDropdown());
+            select.selectByValue(typeOfAccount);
+        }catch(Throwable e){
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     public void selectFromAccount(String typeOfAccount){
-    try {
-        wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                Select select = new Select(elements.fromAccountDropdown());
-                return select.getOptions().size() > 1;
-            }
-        });
+        try {
+            wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    Select select = new Select(elements.fromAccountDropdown());
+                    return select.getOptions().size() > 1;
+                }
+            });
 
-        select = new Select(elements.fromAccountDropdown());
-        select.selectByValue(typeOfAccount);
-    }catch(Throwable e){
-        //Do nothing
-    }
+            select = new Select(elements.fromAccountDropdown());
+            select.selectByValue(typeOfAccount);
+        }catch(Throwable e){
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
