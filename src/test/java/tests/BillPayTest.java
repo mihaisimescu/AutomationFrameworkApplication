@@ -47,8 +47,14 @@ public class BillPayTest extends BaseTest {
         //Store number of bills to pay
         int numberOfBills = Integer.parseInt(configurationLoader.getProperty("numberOFBills"));
 
+        payBills(numberOfBills);
+
+        //checkTransactionHistory(numberOfBills);
+    }
+
+    private void payBills(int numberOfBills) {
         //loop through bills and pay them
-        for (int i = 0; i<numberOfBills; i++) {
+        for (int i = 0; i< numberOfBills; i++) {
 
             //* Go to BillPay page
             overview.clickBillPay();
@@ -73,18 +79,22 @@ public class BillPayTest extends BaseTest {
             //Check if the amount sent matches the amount entered
             Assert.assertEquals(billPay.sentAmount(), amount);
         }
+    }
 
+    private void checkTransactionHistory(int numberOfBills) {
         //Go to accounts overview
         overview.clickAccountsOverview();
 
         //Click on the main account
         accountOverview.clickDefaultAccount();
 
-        for (int i = 0; i<numberOfBills; i++ ){
+        for (int i = 0; i< numberOfBills; i++ ){
             //Create transaction name
             String transactionName = configurationLoader.getProperty("transactionName") + " " + configurationLoader.getProperty("payeeName" + String.valueOf(i));
             //Check transaction history
             Assert.assertTrue(accountOverview.checkTransactionName(transactionName));
         }
     }
+
+
 }
