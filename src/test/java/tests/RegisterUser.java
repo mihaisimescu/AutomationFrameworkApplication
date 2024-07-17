@@ -19,6 +19,8 @@ public class RegisterUser extends BaseTest {
     @Test
     public void registerUser(){
 
+        initTest("Register Test");
+
         register = new Register(driver);
 
         register.registerNewUser();

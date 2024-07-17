@@ -28,7 +28,7 @@
         </classes>
     </test>
 
-    <test name="Bill Pay">
+    <test name="Bill Pay Test">
         <classes>
             <class name="tests.BillPayTest">
             </class>

@@ -19,6 +19,8 @@ public class AccountHistoryTest extends BaseTest {
     @Test
     public void accountHistory(){
 
+        initTest("Account History Test");
+
         login = new Index(driver);
         register = new Register(driver);
         accountsActivity = new AccountsActivity(driver);

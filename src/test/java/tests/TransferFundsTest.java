@@ -26,6 +26,8 @@ public class TransferFundsTest extends BaseTest {
     @Test
     public void transferFunds(){
 
+        initTest("Transfer Funds Test");
+
         login = new Index(driver);
         overview = new Overview(driver);
         accountOverview = new AccountOverview(driver);

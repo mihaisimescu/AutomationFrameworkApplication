@@ -17,6 +17,8 @@ public class FindMyLoginInfoTest extends BaseTest {
     @Test
     public void ForgotLogin(){
 
+        initTest("Forgot Login Test");
+
         login = new Index(driver);
         lookup = new Lookup(driver);
 

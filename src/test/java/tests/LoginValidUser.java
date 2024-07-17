@@ -21,6 +21,8 @@ public class LoginValidUser extends BaseTest {
     @Test
     public void validLogin(){
 
+        initTest("Login Test");
+
         login = new Index(driver);
         register = new Register(driver);
 

@@ -26,6 +26,8 @@ public class OpenAccountTest extends BaseTest {
     @Test
     public void openAccount(){
 
+        initTest("Open Account Test");
+
         login = new Index(driver);
         overview = new Overview(driver);
         openAccount = new OpenAccount(driver);

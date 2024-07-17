@@ -25,6 +25,8 @@ public class BillPayTest extends BaseTest {
     @Test
     public void billPay(){
 
+        initTest("Bill Pay Test");
+
         login = new Index(driver);
         billPay = new BillPay(driver);
         overview = new Overview(driver);
