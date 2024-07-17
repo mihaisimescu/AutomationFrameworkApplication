@@ -2,6 +2,7 @@ package tests;
 
 import actions.Index;
 import actions.Overview;
+import actions.Register;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,28 +17,35 @@ public class LogoutTest extends BaseTest {
 
     private Index login = null;
     private Overview overview = null;
-    ConfigurationLoader configurationLoader = null;
+    private Register register = null;
+    private ConfigurationLoader configurationLoader;
+
 
     @Test
     public void logOut(){
 
         login = new Index(driver);
-
+        overview = new Overview(driver);
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
-        String username = configurationLoader.getProperty("username");
-        String password = configurationLoader.getProperty("password");
+        // Log In Phase
+        login.loginUser();
 
-        login.enterUserName(username);
-        login.enterPassword(password);
-        login.clickLoginButton();
+        //Check if the account not created
+        if(login.errorLoginText()) {
+            //Register new user
+            register = new Register(driver);
+            register.registerNewUser();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='logout.htm']")));
+        }
 
-        overview = new Overview(driver);
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
+
+        //Click logout
         overview.clickLogout();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='submit']")));
 
         Assert.assertEquals(overview.getCustomerLoginText(), configurationLoader.getProperty("logout"));

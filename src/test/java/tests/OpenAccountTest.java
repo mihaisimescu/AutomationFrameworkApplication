@@ -30,6 +30,7 @@ public class OpenAccountTest extends BaseTest {
         overview = new Overview(driver);
         openAccount = new OpenAccount(driver);
         accountOverview = new AccountOverview(driver);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
@@ -38,11 +39,10 @@ public class OpenAccountTest extends BaseTest {
 
         //Check if the account not created
         if(login.errorLoginText()) {
-
+            //Register new user
             register = new Register(driver);
             register.registerNewUser();
 
-            login.loginUser();
             //Go to accounts overview in order to store the default account ID
             overview.clickAccountsOverview();
         }
@@ -64,7 +64,6 @@ public class OpenAccountTest extends BaseTest {
         openAccount.clickSubmit();
 
         //Check if the account has been created
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Account Opened!')]")));
         Assert.assertEquals(openAccount.getOpenAccountResult(), configurationLoader.getProperty("openAccountResult"));
 

@@ -25,8 +25,20 @@ public class AccountHistoryTest extends BaseTest {
         accountOverview = new AccountOverview(driver);
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 
-        //Login user
-        loginUser();
+        //Log in
+        login.loginUser();
+
+        //Check if the account not created
+        if(login.errorLoginText()) {
+            //Register new user
+            register = new Register(driver);
+            register.registerNewUser();
+
+            registerAccount = true;
+        }
+
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
 
         //Check if the user was registered
         if(registerAccount){
@@ -53,32 +65,6 @@ public class AccountHistoryTest extends BaseTest {
         else {
             Assert.assertEquals(accountsActivity.getTransaction(),configurationLoader.getProperty("transaction"));
         }
-    }
-
-    private void loginUser(){
-
-        configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
-
-        String username = configurationLoader.getProperty("username");
-        String password = configurationLoader.getProperty("password");
-
-        //Enter login data and click button
-        login.enterUserName(username);
-        login.enterPassword(password);
-        login.clickLoginButton();
-
-        //Check if the account not created
-        if(login.errorLoginText()){
-
-            //Register new account and login
-            register.registerNewUser();
-            login.enterUserName(username);
-            login.enterPassword(password);
-            login.clickLoginButton();
-
-            registerAccount = true;
-        }
-
     }
 
 }

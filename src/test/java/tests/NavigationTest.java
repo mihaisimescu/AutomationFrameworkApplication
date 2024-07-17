@@ -23,6 +23,7 @@ public class NavigationTest extends BaseTest {
     private FindTransactions findTransactions;
     private UpdateProfile updateProfile;
     private RequestLoan requestLoan;
+    private Register register =null;
 
     @Test
     public void navigationOverview(){
@@ -34,8 +35,16 @@ public class NavigationTest extends BaseTest {
         // Log In Phase
         login.loginUser();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='logout.htm']")));
+        //Check if the account not created
+        if(login.errorLoginText()) {
+            //Register new user
+            register = new Register(driver);
+            register.registerNewUser();
+
+        }
+
+        //Check if login is successful, by checking if logout link is present
+        Assert.assertTrue(login.checkLogout());
 
         // Go to Open New Account
         overview = new Overview(driver);

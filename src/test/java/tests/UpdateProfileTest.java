@@ -36,9 +36,9 @@ public class UpdateProfileTest extends BaseTest {
 
         //Check if the account not created
         if(login.errorLoginText()) {
+            //Register new user
             register = new Register(driver);
             register.registerNewUser();
-            login.loginUser();
         }
 
         //Check if login is successful, by checking if logout link is present
