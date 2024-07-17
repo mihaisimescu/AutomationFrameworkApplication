@@ -13,6 +13,8 @@ public class LoginInvalidUser extends BaseTest {
     @Test
     public void invalidLogin(){
 
+        initTest("Invalid Login Test");
+
         login = new Index(driver);
         ConfigurationLoader configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");
 

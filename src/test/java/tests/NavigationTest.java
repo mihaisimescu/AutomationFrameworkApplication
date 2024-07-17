@@ -28,6 +28,8 @@ public class NavigationTest extends BaseTest {
     @Test
     public void navigationOverview(){
 
+        initTest("Navigation Test");
+
         login = new Index(driver);
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");

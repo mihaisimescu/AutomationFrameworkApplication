@@ -1,11 +1,13 @@
 package actions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webelements.AccountsOverviewElements;
 
 import java.time.Duration;
+import java.util.List;
 
 public class AccountOverview {
 
@@ -27,7 +29,12 @@ public class AccountOverview {
     }
 
     public void clickDefaultAccount(){
+        wait.until(d->elements.defaultAccountId().isDisplayed());
         elements.defaultAccountId().click();
     }
 
+    public boolean checkTransactionName(String transactionName){
+        wait.until(d->elements.transactionDetails().isDisplayed());
+        return elements.transactionHistory(transactionName);
+    }
 }

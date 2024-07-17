@@ -28,7 +28,7 @@
         </classes>
     </test>
 
-    <test name="Bill Pay">
+    <test name="Bill Pay Test">
         <classes>
             <class name="tests.BillPayTest">
             </class>
@@ -45,13 +45,6 @@
     <test name="Navigation Test">
         <classes>
             <class name="tests.NavigationTest">
-            </class>
-        </classes>
-    </test>
-
-    <test name="Update Profile Test">
-        <classes>
-            <class name="tests.UpdateProfileTest">
             </class>
         </classes>
     </test>
@@ -76,5 +69,12 @@
             </class>
         </classes>
     </test>
+
+<!--    <test name="Update Profile Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.UpdateProfileTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

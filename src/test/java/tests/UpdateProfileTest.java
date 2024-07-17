@@ -27,6 +27,8 @@ public class UpdateProfileTest extends BaseTest {
     @Test
     public void updateProfile(){
 
+        initTest("Update Profile Test");
+
         login = new Index(driver);
 
         configurationLoader = new ConfigurationLoader("src/test/resources/properties/loginUserData.properties");

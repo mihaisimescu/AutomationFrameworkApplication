@@ -9,15 +9,17 @@ import utils.ConfigurationLoader;
 public class AccountHistoryTest extends BaseTest {
 
     private Index login = null;
-    ConfigurationLoader configurationLoader = null;
+    private ConfigurationLoader configurationLoader = null;
     private Register register = null;
     private AccountsActivity accountsActivity = null;
-    AccountOverview accountOverview = null;
+    private AccountOverview accountOverview = null;
     private static boolean registerAccount = false;
     private Overview overview = null;
 
     @Test
     public void accountHistory(){
+
+        initTest("Account History Test");
 
         login = new Index(driver);
         register = new Register(driver);
